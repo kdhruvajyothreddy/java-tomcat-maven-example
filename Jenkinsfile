@@ -17,5 +17,14 @@ pipeline {
        	    		}
 	    	   }
     	}
+    	stage('Deploy Artifact to Staging') {
+	       steps {
+       	    	echo 'Deploying artifacting into Satging ....'
+       	    	build job:'Deploy_Artifact_Staging_Pipeline'
+       	    	echo 'Deplyment to Staging completed'
+       		}
+
+	    }
+
 	}
 }
