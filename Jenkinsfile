@@ -1,22 +1,21 @@
 pipeline {
     agent any
 	stages {
-	    stage('Initialize') {
+	    stage('Build Servlet Project') {
     	   steps {
-   	        echo 'Initializing the code pipeline'
-   	    	}
+				//For Windows
+			 	bat 'mvn clean install'
+			 	
+			 	//For Linux
+			 	//sh 'mvn clean install'
+			 	echo 'The servlet package has been created'			 	
+   	    	}   	    	
+   	    	post {
+	    	       success {       	    	   		
+       	    	   		echo 'Now archiving ....'
+       	    	   		archiveArtifacts artifacts:'**/*.war', fingerprint:true
+       	    		}
+	    	   }
     	}
-    	stage('Build') {
-	       steps {
-       	    echo 'Starting build .....' 	    
-       		}
-	    }
-	    stage('Deploy') {
-    	   steps {
-   	        echo 'Deploying the artifact'
-   	    	}
-
-    	}
-
 	}
 }
