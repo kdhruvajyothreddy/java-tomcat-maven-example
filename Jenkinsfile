@@ -25,6 +25,20 @@ pipeline {
        		}
 
 	    }
-
+	    stage('Deploy to Production') {
+	    	steps {	    		
+				input message:'APPROVE Production Deployment?'
+				echo 'Deploying to Production'
+	    		build job:'Deploy_Production_Pipeline'    
+	    	}
+	    	post {
+	    	    success {
+    	    	    echo 'Deployment Production SUCCESSFUL'
+    	    	}
+    	    	failure {
+	    	        echo 'Deployment Production FAILED'
+	    	    }
+	    	}
+	     }
 	}
 }
