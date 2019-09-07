@@ -16,7 +16,6 @@
 <p>Testing on Production......</p>
 <p>Testing on cloud</p>
 <p>To test on Cloud Production........</p>
-<p>Just checking for deployment through Docker. Looks like it is working fine</p>
 
 </body>
 </html>
