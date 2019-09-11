@@ -42,13 +42,13 @@ pipeline {
                     input message: "Approve PRODUCTION DEPLOYMENT ?"
                 }
                 build job: 'Deploy_Production_Pipeline'
-                post {
-                    success {
-                        echo 'Deployment on PRODUCTION is successful.'
-                    }
-                    failure {
-                        echo 'Deployment FAILURE on PRODUCTION.'
-                    }
+            }
+            post {
+                success {
+                    echo 'Deployment on PRODUCTION is successful.'
+                }
+                failure {
+                    echo 'Deployment FAILURE on PRODUCTION.'
                 }
             }
         }
