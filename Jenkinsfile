@@ -9,13 +9,20 @@ pipeline {
 
         stage ('Build') {
             steps {
-                echo "Hello World"
+                // For windows machine
+                bat 'mvn clean package'
+
+                // For Linux machine
+                // sh 'mvn clean package'
+
             }
         }
-        
-        stage ('Deploy') {
-            steps {
-                echo "Deploy an artifact"
+
+        post {
+            success {
+                echo "Now archiving ..... "
+
+                archiveArtifacts artifacts: '**/*.war'
             }
         }
     }    

@@ -8,14 +8,7 @@
 
 <br>
 
-<p>Just checking and playing around with my local</p>
-<p>Adding another line to check the build with Jenkins.</p>
-<p>Checking to deploy to production.</p>
-<p>Working on Code Pipeline for Staging area.</p>
-<p>Adding one more line</p>
-<p>Testing on Production</p>
-<p>For any issues, please contact the system administrator</p>
-
+<p>Testing with Jenkinsfile for Codepipeline</p>
 
 </body>
 </html>
