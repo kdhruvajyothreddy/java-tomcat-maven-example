@@ -1,56 +1,22 @@
 pipeline {
     agent any
-    tools {
-        maven 'LocalMaven'
-    } 
     stages {
         stage ('Initialize') {
             steps {
-                echo "Initializing the code file"
+                echo  "Initializing the Code File"
             }
         }
-
-        // For Pipeline Project
-        stage ('Build Servlet Project') {
+ 
+        stage ('Build') {
             steps {
-                // For windows machine
-                bat 'mvn clean package'
-
-                // For Linux machine
-                // sh 'mvn clean package'
-            }
-            post {
-                success {
-                    echo "Now archiving ..... "
-
-                    archiveArtifacts artifacts: '**/*.war'
-                }
+                echo 'Hello World'
             }
         }
-
-        // For Freestyle Project
-        stage ('Deploy Build in Staging Area') {
+ 
+         stage ('Deploy') {
             steps {
-                // To build a freestyle project in Jenkins
-                build job: 'Deploy_StagingArea_Pipeline'
+                echo 'Deployed an Artifact'
             }
         }
-
-        stage ('Deploy to Production') {
-            steps {
-                timeout(time:5, unit: 'DAYS') {
-                    input message: "Approve PRODUCTION DEPLOYMENT ?"
-                }
-                build job: 'Deploy_Production_Pipeline'
-            }
-            post {
-                success {
-                    echo 'Deployment on PRODUCTION is successful.'
-                }
-                failure {
-                    echo 'Deployment FAILURE on PRODUCTION.'
-                }
-            }
-        }
-    }    
+    }
 }
