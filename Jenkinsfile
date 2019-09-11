@@ -15,14 +15,14 @@ pipeline {
                 // For Linux machine
                 // sh 'mvn clean package'
 
-            }
-        }
+            }        
 
-        post {
-            success {
-                echo "Now archiving ..... "
+            post {
+                success {
+                    echo "Now archiving ..... "
 
-                archiveArtifacts artifacts: '**/*.war'
+                    archiveArtifacts artifacts: '**/*.war'
+                }
             }
         }
     }    
