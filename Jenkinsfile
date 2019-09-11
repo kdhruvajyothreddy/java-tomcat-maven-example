@@ -1,22 +1,32 @@
 pipeline {
     agent any
     stages {
-        stage ('Initialize') {
+        stage ('Build Server Project') {
             steps {
-                echo  "Initializing the Code File"
+                echo 'Initializing the Code File'
+                // For Windows machine
+                bat 'mvn clean package'
+                // For Linux machine
+                // sh 'mvn clean package'
+            }
+            post {
+                success {
+                    echo 'Now archiving ....'
+                    archiveArtifacts artifacts: '**/*.war'
+                }
             }
         }
  
-        stage ('Build') {
+        stage ('Deploy Build in Staging Area') {
             steps {
-                echo 'Hello World'
+                echo 'Deploying artifact in Staging area .....'
+                build job: 'Deploy_StagingArea_Pipeline'
             }
-        }
- 
-         stage ('Deploy') {
-            steps {
-                echo 'Deployed an Artifact'
+            post {
+                success {
+                    echo 'Deployed in Staging Area successfully.'
+                }
             }
-        }
+        }        
     }
 }
