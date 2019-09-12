@@ -21,12 +21,7 @@ pipeline {
             steps {
                 echo 'Deploying artifact in Staging area .....'
                 build job: 'Deploy_StagingArea_Pipeline'
-            }
-            post {
-                success {
-                    echo 'Deployed in Staging Area successfully.'
-                }
-            }
+            }            
         }        
     }
 }
