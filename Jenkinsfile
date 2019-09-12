@@ -20,7 +20,7 @@ pipeline {
         stage ('Deploy Build in Staging Area') {
             steps {
                 echo 'Deploying artifact in Staging area .....'
-                build job: 'Deploy_StagingArea_Pipeline'
+                build job: 'Deploy_Servlet_Staging_Pipeline'
             }            
         }        
     }
