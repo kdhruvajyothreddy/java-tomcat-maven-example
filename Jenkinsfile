@@ -13,6 +13,7 @@ pipeline {
                 success {
                     echo 'Now archiving ....'
                     archiveArtifacts artifacts: '**/*.war'
+                    echo 'War file has been archived'
                 }
             }
         }
