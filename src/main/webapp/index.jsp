@@ -9,7 +9,7 @@
 <br>
 
 <p>Testing with Jenkinsfile for Codepipeline</p>
-<p>Testing with Jenkinsfile for Codepipeline on both Staging and Production......</p>
+<p>Testing with Jenkinsfile for Codepipeline on just Staging Area for now......</p>
 
 </body>
 </html>
