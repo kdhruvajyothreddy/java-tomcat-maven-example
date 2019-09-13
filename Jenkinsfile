@@ -18,11 +18,11 @@ pipeline {
             }
         }
  
-        // stage ('Deploy Build in Staging Area') {
-        //     steps {
-        //         echo 'Deploying artifact in Staging area .....'
-        //         build job: 'Deploy_Servlet_Staging_Pipeline'
-        //     }            
-        // }        
+        stage ('Deploy Build in Staging Area') {
+            steps {
+                echo 'Deploying artifact in Staging area .....'
+                build job: 'Deploy_Servlet_Staging_Pipeline'
+            }            
+        }        
     }
 }
