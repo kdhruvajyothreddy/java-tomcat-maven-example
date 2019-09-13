@@ -7,7 +7,7 @@ pipeline {
                 // For Windows machine
                 // bat 'mvn clean package'
                 // For Linux machine
-                sh 'mvn clean package'
+                sh "mvn clean install"
             }
             post {
                 success {
