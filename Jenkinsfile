@@ -4,6 +4,7 @@ pipeline {
         stage ('Build Server Project') {
             steps {
                 echo 'Initializing the Code File'
+                echo $JAVA_HOME
                 // For Windows machine
                 // bat 'mvn clean package'
                 // For Linux machine
